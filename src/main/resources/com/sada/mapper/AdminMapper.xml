@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sada.mapper.AdminMapper">
+
+	<!-- 작가 등록 -->
+	<insert id="productEnroll">
+
+
+		<selectKey resultType="int" keyProperty="productId"
+			order="AFTER">
+
+			SELECT LAST_INSERT_ID()
+
+		</selectKey>
+		
+		insert into sada_product(productName,color,cateCode, productPrice,
+		productStock, productDiscount, productIntro)
+		values(#{productName},#{color},#{cateCode},#{productPrice},#{productStock},#{productDiscount},#{productIntro})
+
+	</insert>
+
+	<!-- 카테고리 리스트 -->
+	<select id="cateList" resultType="com.sada.model.CateVO">
+
+		select * from sada_bcate order
+		by catecode
+
+	</select>
+
+	<!-- 상품 리스트 -->
+	<select id="goodsGetList" resultType="com.sada.model.ProductVO">
+
+		select productId, productName, color, c.cateName ,productStock,
+		a.regDate
+		from sada_product a
+		left outer join sada_bcate c on a.cateCode
+		= c.cateCode
+		<if test="keyword != null">
+			where (productName like concat ('%', #{keyword}, '%'))
+		</if>
+		order by productId desc
+		limit #{skip}, #{amount}
+
+	</select>
+
+	<!-- 상품 총 갯수 -->
+	<select id="goodsGetTotal" resultType="int">
+
+		select count(*) from sada_product
+
+		<if test="keyword != null">
+
+			where productName like concat('%' , #{keyword}, '%')
+
+		</if>
+
+	</select>
+
+	<!-- 상품 조회 페이지 -->
+	<select id="goodsGetDetail"
+		resultType="com.sada.model.ProductVO">
+
+		select productId, productName, color, cateCode,
+		productPrice, productStock,
+		productDiscount, productIntro, regDate
+		from
+		sada_product where productId = #{productId}
+
+	</select>
+
+	<!-- 상품 정보 수정 -->
+	<update id="goodsModify">
+
+		update sada_product set productName = #{productName},
+		color = #{color}, cateCode = ${cateCode},
+		productPrice =
+		#{productPrice}, productStock = #{productStock},
+		productDiscount = #{productDiscount}, productIntro = #{productIntro}, updateDate =
+		now()
+		where productId = ${productId}
+
+	</update>
+
+	<!-- 상품 정보 삭제 -->
+	<delete id="goodsDelete">
+
+		delete from sada_product where productId = #{productId}
+
+	</delete>
+
+	<!-- 이미지 등록 -->
+	<insert id="imageEnroll">
+
+		insert into sada_image(productId, fileName, uploadPath, uuid) values
+		(#{productId}, #{fileName}, #{uploadPath}, #{uuid})
+
+	</insert>
+	
+		<!-- 지정 상품 이미지 전체 삭제 --> 
+	<delete id="deleteImageAll">
+	
+		delete FROM sada_image where productId = #{productId}
+	
+	</delete>
+	
+		<!-- 어제자 날자 이미지 리스트 -->
+	<select id="checkFileList" resultType="com.sada.model.AttachImageVO">
+	
+		select * from sada_image where uploadpath = DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -1 DAY), '%Y\%m\%d')	
+	
+	</select>
+	
+		<!-- 지정 상품 이미지 정보 얻기 -->
+	<select id="getAttachInfo" resultType="com.sada.model.AttachImageVO">
+	
+		select * from sada_image where productId = #{productId}
+	
+	</select>
+
+</mapper>

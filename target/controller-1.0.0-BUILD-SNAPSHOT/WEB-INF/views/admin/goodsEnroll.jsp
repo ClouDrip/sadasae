@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="../resources/static/css/admin/goodsEnroll.css">
+<link rel='stylesheet' href='../resources/static/css/style.css'
+	type='text/css' media='all' />
 <link rel='stylesheet'
 	href='../resources/static/css/woocommerce-layout.css' type='text/css'
 	media='all'>
@@ -20,14 +20,14 @@
 <link rel='stylesheet'
 	href='../resources/static/css/font-awesome.min.css' type='text/css'
 	media='all'>
-<link rel='stylesheet' href='../resources/static/css/style.css'
-	type='text/css' media='all' />
 <link rel='stylesheet'
 	href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700'
 	type='text/css' media='all'>
 <link rel='stylesheet'
 	href='../resources/static/css/easy-responsive-shortcodes.css'
 	type='text/css' media='all'>
+<link rel="stylesheet"
+	href="../resources/static/css/admin/goodsEnroll.css">
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -61,7 +61,8 @@
 									등록</a></li>
 							<li><a class="admin_list_02" href="/admin/goodsManage">상품
 									관리</a></li>
-							<lI><a class="admin_list_05">회원 관리</a></lI>
+							<li><a class="admin_list_03" href="/admin/replyManage">댓글
+									필터링</a></li>
 						</ul>
 					</div>
 					<div class="admin_content_wrap">
@@ -102,12 +103,12 @@
 											<span>중분류</span> <select class="cate2">
 												<option selected value="none">선택</option>
 											</select>
-										</div>
+										</div>  
 										<div class="cate_wrap">
 											<span>소분류</span> <select class="cate3" name="cateCode">
 												<option selected value="none">선택</option>
 											</select>
-										</div>
+										</div> 
 										<span class="ck_warn cateCode_warn">카테고리를 선택해주세요.</span>
 									</div>
 								</div>
@@ -116,7 +117,7 @@
 										<label>상품 가격</label>
 									</div>
 									<div class="form_section_content">
-										<input name="productPrice" value="0"> <span
+										<input type="text" name="productPrice"> <span
 											class="ck_warn productPrice_warn">상품 가격을 입력해주세요.</span>
 									</div>
 								</div>
@@ -352,8 +353,8 @@
 			cateSelect1.append("<option value='"+cate1Array[i].cateCode+"'>" + cate1Array[i].cateName + "</option>");
 		}
 		
-		/* 중분류 <option> 태그 */
-		$(cateSelect1).on("change",function(){
+ 		/* 중분류 <option> 태그 */
+ 		$(cateSelect1).on("change",function(){
 			let selectVal1 = $(this).find("option:selected").val();	
 			
 			cateSelect2.children().remove();
@@ -367,8 +368,8 @@
 			}// for
 		});
 		
-		/* 소분류 <option>태그 */
-		$(cateSelect2).on("change",function(){
+		<!-- 소분류 <option>태그 -->
+ 		$(cateSelect2).on("change",function(){
 			
 			let selectVal2 = $(this).find("option:selected").val();
 			
@@ -382,7 +383,7 @@
 				}
 			}// for		
 			
-		});
+		});  
 		
 		
 		/* 할인율 Input 설정 */

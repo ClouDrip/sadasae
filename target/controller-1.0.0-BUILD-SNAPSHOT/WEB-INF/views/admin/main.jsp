@@ -58,7 +58,8 @@
 									등록</a></li>
 							<li><a class="admin_list_02" href="/admin/goodsManage">상품
 									관리</a></li>
-							<lI><a class="admin_list_05">회원 관리</a></lI>
+							<li><a class="admin_list_03" href="/admin/replyManage">댓글
+									필터링</a></li>
 						</ul>
 						<!-- 
                     <div class="admin_list_01">
@@ -83,7 +84,7 @@
 				</div>
 			</div>
 		</footer>
-				<a href="#top" class="smoothup" title="Back to top"><span
+		<a href="#top" class="smoothup" title="Back to top"><span
 			class="genericon genericon-collapse"></span></a>
 	</div>
 

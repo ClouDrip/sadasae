@@ -54,18 +54,18 @@ public class AttachFileCheckTask {
 		List<Path> checkFilePath = new ArrayList<Path>();
 			//원본 이미지
 		fileList.forEach(vo -> {
-			Path path = Paths.get("/Users/jingoo/upload", vo.getUploadPath(), vo.getUuid() + "_" + vo.getFileName());
+			Path path = Paths.get("/home/ubuntu/Users/jingoo/upload/", vo.getUploadPath(), vo.getUuid() + "_" + vo.getFileName());
 			checkFilePath.add(path);
 		});		
 			//썸네일 이미지
 		fileList.forEach(vo -> {
-			Path path = Paths.get("/Users/jingoo/upload", vo.getUploadPath(), "s_" +  vo.getUuid() + "_" + vo.getFileName());
+			Path path = Paths.get("/home/ubuntu/Users/jingoo/upload/", vo.getUploadPath(), "s_" +  vo.getUuid() + "_" + vo.getFileName());
 			checkFilePath.add(path);
 		});
 		
 		
 		// 디렉토리 파일 리스트
-		File targetDir = Paths.get("/Users/jingoo/upload", getFolderYesterDay()).toFile();
+		File targetDir = Paths.get("/home/ubuntu/Users/jingoo/upload/", getFolderYesterDay()).toFile();
 		File[] targetFile = targetDir.listFiles();
 		
 		

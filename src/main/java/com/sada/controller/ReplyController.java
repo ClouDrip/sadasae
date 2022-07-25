@@ -25,13 +25,6 @@ public class ReplyController {
 		replyService.enrollReply(dto);
 	}
 	
-	/* 댓글 체크 */
-	/* memberId, bookId 파라미터 */
-	/* 존재 : 1 / 존재x : 0 */
-	@PostMapping("/check")
-	public String replyCheckPOST(ReplyDTO dto) {
-		return replyService.checkReply(dto);
-	}
 	
 	/* 댓글 페이징 */
 	@GetMapping(value="/list", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -43,5 +36,11 @@ public class ReplyController {
 	@PostMapping("/update")
 	public void replyModifyPOST(ReplyDTO dto) {
 		replyService.updateReply(dto);
+	}
+	
+	/* 댓글 삭제 */
+	@PostMapping("/delete")
+	public void replyDeletePOST(ReplyDTO dto) {
+		replyService.deleteReply(dto);
 	}
 }

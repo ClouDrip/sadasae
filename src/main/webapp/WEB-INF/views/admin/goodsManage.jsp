@@ -59,7 +59,8 @@
 									등록</a></li>
 							<li><a class="admin_list_02" href="/admin/goodsManage">상품
 									관리</a></li>
-							<lI><a class="admin_list_05">회원 관리</a></lI>
+							<li><a class="admin_list_03" href="/admin/replyManage">댓글
+									필터링</a></li>
 						</ul>
 					</div>
 					<div class="admin_content_wrap">
@@ -75,21 +76,18 @@
 											<td class="th_column_1">상품 번호</td>
 											<td class="th_column_2">상품 이름</td>
 											<td class="th_column_3">색상</td>
-											<td class="th_column_4">카테고리</td>
-											<td class="th_column_5">재고</td>
-											<td class="th_column_6">등록날짜</td>
+											<td class="th_column_4">재고</td>
+											<td class="th_column_5">등록날짜</td>
 										</tr>
 									</thead>
 									<c:forEach items="${list}" var="list">
 										<tr>
-											<td><c:out value="{list.productId}"></c:out></td>
-											<td>
-											<a class="move" href='<c:out value="${list.productId}"/>'> 
-												<c:out value="${list.productName}"></c:out>
-											</a>
-											</td>
+											<td><c:out value="${list.productId}"></c:out></td>
+											<td><a class="move"
+												href='<c:out value="${list.productId}"/>'> <c:out
+														value="${list.productName}"></c:out>
+											</a></td>
 											<td><c:out value="${list.color}"></c:out></td>
-											<td><c:out value="${list.cateName}"></c:out></td>
 											<td><c:out value="${list.productStock}"></c:out></td>
 											<td><fmt:formatDate value="${list.regDate}"
 													pattern="yyyy-MM-dd" /></td>
@@ -186,18 +184,18 @@
 				alert("상품'" + eResult + "'을 등록하였습니다.");
 
 			}
-			
+
 			/* 수정 성공 이벤트 */
 			let modify_result = '${modify_result}';
-			
-			if(modify_result == 1){
+
+			if (modify_result == 1) {
 				alert("수정 완료");
 			}
-			
+
 			/* 삭제 결과 경고창 */
 			let delete_result = '${delete_result}';
-			
-			if(delete_result == 1){
+
+			if (delete_result == 1) {
 				alert("삭제 완료");
 			}
 
@@ -233,20 +231,25 @@
 			moveForm.submit();
 
 		});
-		
-		/* 상품조회 페이지 */
-		$(".move").on("click", function(e){ 
-			
-		e.preventDefault();
 
-		moveForm.append("<input type='hidden' name='productId' value='"+$(this).attr("href") + "'>");
-		moveForm.attr("action", "/admin/goodsDetail"); 
-		moveForm.submit(); 
-		
-		});
+		/* 상품조회 페이지 */
+		$(".move")
+				.on(
+						"click",
+						function(e) {
+
+							e.preventDefault();
+
+							moveForm
+									.append("<input type='hidden' name='productId' value='"
+											+ $(this).attr("href") + "'>");
+							moveForm.attr("action", "/admin/goodsDetail");
+							moveForm.submit();
+
+						});
 	</script>
 
-	
+
 
 </body>
 </html>

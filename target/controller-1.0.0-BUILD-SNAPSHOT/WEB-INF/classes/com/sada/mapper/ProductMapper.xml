@@ -15,7 +15,8 @@
 
 		select productId, productName, c.cateName,
 		a.cateCode, productPrice
-		from sada_product a left outer join sada_bcate c on a.cateCode = c.cateCode
+		from sada_product a left outer join sada_bcate c on a.cateCode =
+		c.cateCode
 		<include refid="criteria"></include>
 		order by productId desc
 		limit #{skip}, #{amount}
@@ -30,12 +31,30 @@
 		<include refid="criteria"></include>
 
 	</select>
+
+	<select id="likeSelect" resultType="com.sada.model.SelectDTO">
+
+		select productId, productName,productPrice, (select cateName from sada_bcate
+		where sada_product.cateCode = sada_bcate.cateCode) as cateName
+		from sada_product
+
+	</select>
+
+	<!-- 상품 정보 -->
+	<select id="getGoodsInfo" resultType="com.sada.model.ProductVO">
+
+		select a.PRODUCTID, a.PRODUCTNAME, a.CATECODE, c.CATENAME, a.PRODUCTPRICE, a.PRODUCTSTOCK, a.PRODUCTDISCOUNT, a.PRODUCTINTRO 
+		from sada_product a left outer join sada_bcate c on a.catecode = c.catecode where productid = ${productId}
+
+	</select>
 	
-		<select id="likeSelect" resultType="com.sada.model.SelectDTO">
+		<select id="getProductIdName" resultType="com.sada.model.ProductVO">
 	
-	select productId, productName,productPrice, (select cateName from sada_bcate where sada_product.cateCode = sada_bcate.cateCode) as cateName
-	from sada_product	
+		select productId, productName from sada_product 
+		where productId = #{productId}
+	
 	
 	</select>
+	
 
 </mapper>

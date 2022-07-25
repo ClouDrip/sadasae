@@ -64,7 +64,8 @@
 									등록</a></li>
 							<li><a class="admin_list_02" href="/admin/goodsManage">상품
 									관리</a></li>
-							<lI><a class="admin_list_05">회원 관리</a></lI>
+							<li><a class="admin_list_03" href="/admin/replyManage">댓글
+									필터링</a></li>
 						</ul>
 					</div>
 					<div class="admin_content_wrap">
@@ -107,11 +108,11 @@
 												<option selected value="none">선택</option>
 											</select>
 										</div>
-										<div class="cate_wrap">
+ 										<div class="cate_wrap">
 											<span>소분류</span> <select class="cate3" name="cateCode">
 												<option selected value="none">선택</option>
 											</select>
-										</div>
+										</div> 
 										<span class="ck_warn cateCode_warn">카테고리를 선택해주세요.</span>
 									</div>
 								</div>
@@ -152,7 +153,7 @@
 									</div>
 									<div class="form_section_content bit">
 										<textarea name="productIntro" id="productIntro_textarea">${goodsInfo.productIntro}</textarea>
-										<span class="ck_warn productIntro_warn">상 소개를 입력해주세요.</span>
+										<span class="ck_warn productIntro_warn">상품 소개를 입력해주세요.</span>
 									</div>
 								</div>
 								<div class="form_section">
@@ -415,7 +416,7 @@
 						});
 
 		/* 소분류 <option>태그 */
-		$(cateSelect2)
+ 		$(cateSelect2)
 				.on(
 						"change",
 						function() {
@@ -437,7 +438,7 @@
 								}
 							}// for		
 
-						});
+						}); 
 		
 		
 		/* 할인율 Input 설정 */

@@ -46,9 +46,6 @@
 						</c:if>
 						<c:if test="${member != null }">
 							<c:if test="${member.adminCk == 1 }">
-								<div>
-									<span>회원 : ${member.memberName} 회원님 안녕하세요.</span>
-								</div>
 								<li><a href="/admin/main">관리자 페이지</a></li>
 							</c:if>
 							<li><a id="gnb_logout_button">로그아웃</a></li>
@@ -59,9 +56,9 @@
 				</div>
 				<div class="site-branding">
 					<h1 class="site-title">
-						<a href="index.html" rel="home">사다새</a>
+						<a href="index.html" rel="home"></a>
+							<img class="img-concert" src="resources/static/img/pelican.jpg"/>
 					</h1>
-					<h2 class="site-description">많이 담아가면</h2>
 				</div>
 				<nav id="site-navigation" class="main-navigation">
 					<button class="menu-toggle">Menu</button>
@@ -103,9 +100,8 @@
 													data-filename="${ls.imageList[0].fileName}">
 													<img>
 												</div>
-												<div class="ls_category">${ls.cateName}</div>
-												<div class="ls_price">${ls.productPrice}</div>
 												<div class="ls_productName">${ls.productName}</div>
+												<div class="ls_price">KRW ${ls.productPrice}</div>
 											</a>
 										</c:forEach>
 									</div>

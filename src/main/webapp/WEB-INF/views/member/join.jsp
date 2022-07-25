@@ -56,9 +56,9 @@
 				</div>
 				<div class="site-branding">
 					<h1 class="site-title">
-						<a href="index.html" rel="home">사다새</a>
+						<a href="index.html" rel="home"></a>
+						<img class="img-concert" src="../resources/static/img/pelican.jpg"/>
 					</h1>
-					<h2 class="site-description">많이 담아가면</h2>
 				</div>
 				<nav id="site-navigation" class="main-navigation">
 					<button class="menu-toggle">Menu</button>

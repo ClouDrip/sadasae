@@ -4,22 +4,22 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-
-
 public class ReplyDTO {
 
 	private int replyId;
-	
+
 	private int productId;
-	
+
 	private String memberId;
-	
-	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="Asia/Seoul")
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
 	private Date regDate;
-	
+
 	private String content;
-	
+
 	private double rating;
+
+	private int replyFlt;
 
 	public int getReplyId() {
 		return replyId;
@@ -27,6 +27,14 @@ public class ReplyDTO {
 
 	public void setReplyId(int replyId) {
 		this.replyId = replyId;
+	}
+
+	public int getReviewFlt() {
+		return replyFlt;
+	}
+
+	public void setReviewFlt(int replyFlt) {
+		this.replyFlt = replyFlt;
 	}
 
 	public int getProductId() {
@@ -72,8 +80,9 @@ public class ReplyDTO {
 	@Override
 	public String toString() {
 		return "ReplyDTO [replyId=" + replyId + ", productId=" + productId + ", memberId=" + memberId + ", regDate="
-				+ regDate + ", content=" + content + ", rating=" + rating + "]";
+				+ regDate + ", content=" + content + ", rating=" + rating + ", replyFlt=" + replyFlt + "]";
 	}
-	
-	
+
+
+
 }

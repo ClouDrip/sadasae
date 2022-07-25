@@ -33,7 +33,7 @@
 	crossorigin="anonymous"></script>
 <script
 	src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
-	
+
 <style type="text/css">
 #result_card img {
 	max-width: 100%;
@@ -71,7 +71,8 @@
 									등록</a></li>
 							<li><a class="admin_list_02" href="/admin/goodsManage">상품
 									관리</a></li>
-							<lI><a class="admin_list_05">회원 관리</a></lI>
+							<li><a class="admin_list_03" href="/admin/replyManage">댓글
+									필터링</a></li>
 						</ul>
 					</div>
 					<div class="admin_content_wrap">
@@ -123,7 +124,7 @@
 
 							<div class="form_section">
 								<div class="form_section_title">
-									<label>책 카테고리</label>
+									<label>상 카테고리</label>
 								</div>
 								<div class="form_section_content">
 									<div class="cate_wrap">
@@ -136,12 +137,12 @@
 											<option value="none">선택</option>
 										</select>
 									</div>
-									<div class="cate_wrap">
+ 									<div class="cate_wrap">
 										<span>소분류</span> <select class="cate3" name="cateCode"
 											disabled>
 											<option value="none">선택</option>
 										</select>
-									</div>
+									</div>  
 								</div>
 							</div>
 							<div class="form_section">
@@ -187,8 +188,7 @@
 								</div>
 								<div class="form_section_content">
 
-									<div id="uploadReslut">
-									</div>
+									<div id="uploadReslut"></div>
 								</div>
 							</div>
 
@@ -258,7 +258,7 @@
 				let cateSelect1 = $(".cate1");		
 				let cateSelect2 = $(".cate2");
 				let cateSelect3 = $(".cate3");
-
+v
 				
 				/* 카테고리 배열 초기화 메서드 */
 				function makeCateArray(obj,array,cateList, tier){
@@ -285,7 +285,7 @@
 				let targetCate3 = '${goodsInfo.cateCode}';	
 				
 				
-				/* 소분류 카테고리 */
+		        /* 소분류 카테고리 */
 				for(let i = 0; i < cate3Array.length; i++){
 					if(targetCate3 === cate3Array[i].cateCode){
 						targetCate3 = cate3Array[i];
@@ -305,7 +305,7 @@
 					if(targetCate3.cateCode === obj.value){
 						$(obj).attr("selected", "selected");
 					}
-				});
+				});    
 				
 				//중분류 카테고리//
 				
@@ -340,12 +340,14 @@
 					cateSelect1.append("<option value='"+cate1Array[i].cateCode+"'>" + cate1Array[i].cateName + "</option>");
 				}
 				
+				
 				/* targetCate2.cateParent 값을 활용하여 대분류 중 선택되어야 할 <option>태그에 'selected' 속성을 추가해줍니다.*/
 				$(".cate1 option").each(function(i,obj){
 					if(targetCate2.cateParent === obj.value){
 						$(obj).attr("selected", "selected");
 					}
 				});	
+				
 				
 				/* 이미지 정보 호출 */
 				let productId = '<c:out value="${goodsInfo.productId}"/>';

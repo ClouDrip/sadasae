@@ -13,9 +13,11 @@
 	crossorigin="anonymous"></script>
 <title>Moschino | Minimalist Free HTML Portfolio by
 	WowThemes.net</title>
+<link rel='stylesheet' href='../resources/static/css/goodsDetail.css'
+	type='text/css' media='all' />
 <link rel='stylesheet' href='../resources/static/css/style.css'
 	type='text/css' media='all' />
-<link rel='stylesheet' href='../resources/static/css/goodsDetail.css'
+<link rel='stylesheet' href='../resources/static/css/toggle.css'
 	type='text/css' media='all' />
 <link rel='stylesheet'
 	href='../resources/static/css/woocommerce-layout.css' type='text/css'
@@ -70,9 +72,9 @@
 				</div>
 				<div class="site-branding">
 					<h1 class="site-title">
-						<a href="index.html" rel="home">사다새</a>
+						<a href="index.html" rel="home"></a> <img class="img-concert"
+							src="../resources/static/img/pelican.jpg" />
 					</h1>
-					<h2 class="site-description">많이 담아가면</h2>
 				</div>
 				<nav id="site-navigation" class="main-navigation">
 					<button class="menu-toggle">Menu</button>
@@ -132,17 +134,26 @@
 									<div class="title_information">
 										<div class="product_name">${goodsInfo.productName}</div>
 										<div class="product_price">KRW ${goodsInfo.productPrice}</div>
+										<div class="select_size">
+											<span>size</span> <select class="cate3" name="cateCode">
+												<option selected value="none">선택</option>
+											</select>
+										</div>
+
 									</div>
 
-									<form class="cart" method="post" enctype='multipart/form-data'>
-										<div class="quantity">
-											<input type="number" step="1" min="1" max="" name="quantity"
-												value="1" title="Qty" class="input-text qty text" size="4" />
+									<div class="button">
+										<div class="button_quantity">
+											주문수량 <input type="text" class="quantity_input" value="1">
+											<span>
+												<button class="plus_btn">+</button>
+												<button class="minus_btn">-</button>
+											</span>
 										</div>
-										<button type="submit"
-											class="single_add_to_cart_button button alt">Add to
-											cart</button>
-									</form>
+										<div class="button_set">
+											<a class="btn_cart">장바구니 담기</a> <a class="btn_buy">바로구매</a>
+										</div>
+									</div>
 									<div class="product_meta">
 										<span class="posted_in">Categories: <a href="#"
 											rel="tag">Clothing</a>, <a href="#" rel="tag">Hoodies</a>
@@ -157,81 +168,41 @@
 									</div>
 									<div class="panel entry-content wc-tab" id="tab-reviews">
 										<div id="reviews">
-											<div id="comments">
-												<h2>2 Reviews for Beige Jacket</h2>
-												<ol class="commentlist">
-													<li itemprop="review" itemscope
-														itemtype="http://schema.org/Review" class="comment">
-														<div id="comment-3" class="comment_container">
-															<div class="comment-text">
-																<p class="meta">
-																	<strong itemprop="author">Steve</strong> &ndash;
-																	<time itemprop="datePublished"
-																		datetime="2013-06-07T15:54:25+00:00">June 7,
-																		2013</time>
-																	:
-																</p>
-																<div itemprop="description" class="description">
-																	<p>I like the logo but not the color.</p>
-																</div>
-															</div>
-														</div>
-													</li>
-													<!-- #comment-## -->
-													<li itemprop="review" itemscope
-														itemtype="http://schema.org/Review" class="comment">
-														<div id="comment-4" class="comment_container">
-															<div class="comment-text">
-																<p class="meta">
-																	<strong itemprop="author">Maria</strong> &ndash;
-																	<time itemprop="datePublished"
-																		datetime="2013-06-07T15:54:25+00:00">June 7,
-																		2013</time>
-																	:
-																</p>
-																<div itemprop="description" class="description">
-																	<p>Three letters, one word: WOO!</p>
-																</div>
-															</div>
-														</div>
-													</li>
-													<!-- #comment-## -->
-												</ol>
+											<div class="comments">
+												<h1>리뷰 목록</h1>
+												<div class="filtering">
+													<input type="checkbox" id="hide-checkbox"> <label
+														for="hide-checkbox" class="toggle"> <span
+														class="toggle-button"> <span
+															class="crater crater-1"></span> <span
+															class="crater crater-2"></span> <span
+															class="crater crater-3"></span> <span
+															class="crater crater-4"></span> <span
+															class="crater crater-5"></span> <span
+															class="crater crater-6"></span> <span
+															class="crater crater-7"></span>
+													</span> <span class="star star-1"></span> <span
+														class="star star-2"></span> <span class="star star-3"></span>
+														<span class="star star-4"></span> <span
+														class="star star-5"></span> <span class="star star-6"></span>
+														<span class="star star-7"></span> <span
+														class="star star-8"></span>
+													</label>
+												</div>
 											</div>
 
-											<div class="reply_not_div"></div>
-											<ul class="reply_content_ul">
-												<!-- 					<li>
-															<div class="comment_wrap">
-																<div class="reply_top">
-																	<span class="id_span">sjinjin7</span> <span
-																		class="date_span">2021-10-11</span> <span
-																		class="rating_span">평점 : <span
-																		class="rating_value_span">4</span>점
-																	</span> <a class="update_reply_btn">수정</a><a
-																		class="delete_reply_btn">삭제</a>
-																</div>
-																<div class="reply_bottom">
-																	<div class="reply_bottom_txt">사실 기대를 많이하고 읽기시작했는데
-																		읽으면서 가가 쓴것이 맞는지 의심들게합니다 문체도그렇고 간결하지 않네요 제가 기대가 크던
-																		작았던간에 책장이 사실 안넘겨집니다.</div>
-																</div>
-															</div>
-														</li> -->
-											</ul>
+
+											<div class="reply_content_ul"></div>
 											<div class="repy_pageInfo_div">
 												<ul class="pageMaker">
-													<!-- 														<li class="pageMaker_btn prev"><a>이전</a></li>
-														<li class="pageMaker_btn"><a>1</a></li>
-														<li class="pageMaker_btn"><a>2</a></li>
-														<li class="pageMaker_btn active"><a>3</a></li>
-														<li class="pageMaker_btn next"><a>다음</a></li> -->
+													<li class="pageMaker_btn active"><a>1</a></li>
 												</ul>
 
 											</div>
 											<c:if test="${member != null}">
 												<div class="reply_button_wrap">
 													<button>리뷰 쓰기</button>
+
 												</div>
 											</c:if>
 
@@ -267,7 +238,6 @@
 	</footer>
 	<a href="#top" class="smoothup" title="Back to top"><span
 		class="genericon genericon-collapse"></span></a>
-	</div>
 	<!-- #page -->
 	<script src='../resources/static/js/jquery.js'></script>
 	<script src='../resources/static/js/plugins.js'></script>
@@ -280,6 +250,8 @@
 
 					/* 이미지 삽입 */
 					const bobj = $(".image_wrap");
+
+					replyListInit();
 
 					if (bobj.data("productid")) {
 						const uploadPath = bobj.data("path");
@@ -310,46 +282,6 @@
 			}); // ajax 
 		});
 
-		/* 리뷰쓰기 */
-		$(".reply_button_wrap")
-				.on(
-						"click",
-						function(e) {
-
-							e.preventDefault();
-
-							const memberId = '${member.memberId}';
-							const productId = '${goodsInfo.productId}';
-
-							$
-									.ajax({
-										data : {
-											productId : productId,
-											memberId : memberId
-										},
-										url : '/reply/check',
-										type : 'POST',
-										success : function(result) {
-
-											if (result === '1') {
-												alert("이미 등록된 리뷰가 존재 합니다.")
-											} else if (result === '0') {
-												let popUrl = "/replyEnroll/"
-														+ memberId
-														+ "?productId="
-														+ productId;
-												console.log(popUrl);
-												let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes";
-
-												window.open(popUrl, "리뷰 쓰기",
-														popOption);
-											}
-
-										}
-									});
-
-						});
-
 		/* 댓글 페이지 정보 */
 		const cri = {
 			productId : '${goodsInfo.productId}',
@@ -377,19 +309,45 @@
 
 			});
 		}
-		
+
 		/* 리뷰 수정 버튼 */
-		 $(document).on('click', '.update_reply_btn', function(e){
-				
-				e.preventDefault();
-				let replyId = $(this).attr("href");		 
-				let popUrl = "/replyUpdate?replyId=" + replyId + "&productId=" + '${goodsInfo.productId}' + "&memberId=" + '${member.memberId}';	
-				let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes"	
-				
-				window.open(popUrl,"리뷰 수정",popOption);			
-			 
-		 });
-		
+		$(document)
+				.on(
+						'click',
+						'.update_reply_btn',
+						function(e) {
+
+							e.preventDefault();
+							let replyId = $(this).attr("href");
+							let popUrl = "/replyUpdate?replyId=" + replyId
+									+ "&productId=" + '${goodsInfo.productId}'
+									+ "&memberId=" + '${member.memberId}';
+							let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes"
+
+							window.open(popUrl, "리뷰 수정", popOption);
+
+						});
+
+		/* 리뷰 삭제 버튼 */
+		$(document).on('click', '.delete_reply_btn', function(e) {
+
+			e.preventDefault();
+			let replyId = $(this).attr("href");
+
+			$.ajax({
+				data : {
+					replyId : replyId,
+					productId : '${goodsInfo.productId}'
+				},
+				url : '/reply/delete',
+				type : 'POST',
+				success : function(result) {
+					replyListInit();
+					alert('삭제가 완료되엇습니다.');
+				}
+			});
+
+		});
 
 		/* 댓글(리뷰) 동적 생성 메서드 */
 		function makeReplyContent(obj) {
@@ -415,6 +373,9 @@
 
 									reply_list += '<li>';
 									reply_list += '<div class="comment_wrap">';
+									if (obj.replyFlt === 1){
+										reply_list += '<span>클린봇에의해 삭제 되었습니다.</span>';
+									}
 									reply_list += '<div class="reply_top">';
 									/* 아이디 */
 									reply_list += '<span class="id_span">'
@@ -472,6 +433,114 @@
 				$(".pageMaker").html(reply_pageMaker);
 			}
 
+		}
+
+		/* 리뷰쓰기 */
+		$(".reply_button_wrap")
+				.on(
+						"click",
+						function(e) {
+
+							e.preventDefault();
+
+							const memberId = '${member.memberId}';
+							const productId = '${goodsInfo.productId}';
+
+							let popUrl = "/replyEnroll/" + memberId
+									+ "?productId=" + productId;
+							console.log(popUrl);
+							let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes";
+
+							window.open(popUrl, "리뷰 쓰기", popOption);
+
+						});
+
+		/* 카테고리 */
+		let cateList = JSON.parse('${cateList}');
+
+		let cate1Array = new Array();
+		let cate2Array = new Array();
+		let cate3Array = new Array();
+		let cate1Obj = new Object();
+		let cate2Obj = new Object();
+		let cate3Obj = new Object();
+
+		let cateSelect1 = $(".cate1");
+		let cateSelect2 = $(".cate2");
+		let cateSelect3 = $(".cate3");
+		/* 카테고리 배열 초기화 메서드 */
+		function makeCateArray(obj, array, cateList, tier) {
+			for (let i = 0; i < cateList.length; i++) {
+				if (cateList[i].tier === tier) {
+					obj = new Object();
+
+					obj.cateName = cateList[i].cateName;
+					obj.cateCode = cateList[i].cateCode;
+					obj.cateParent = cateList[i].cateParent;
+
+					array.push(obj);
+
+				}
+			}
+		}
+
+		/* 배열 초기화 */
+		makeCateArray(cate1Obj, cate1Array, cateList, 1);
+		makeCateArray(cate2Obj, cate2Array, cateList, 2);
+		makeCateArray(cate3Obj, cate3Array, cateList, 3);
+
+		$(document).ready(function() {
+			console.log(cate1Array);
+			console.log(cate2Array);
+			console.log(cate3Array);
+		});
+
+		/* 대분류 <option> 태그 */
+		for (let i = 1; i <= cate3Array.length; i++) {
+			cateSelect3.append("<option value='"+cate2Array[i].cateCode+"'>"
+					+ cate3Array[i].cateName + "</option>");
+		}
+
+		// 수량 버튼 조작
+		let quantity = $(".quantity_input").val();
+		$(".plus_btn").on("click", function() {
+			$(".quantity_input").val(++quantity);
+		});
+		$(".minus_btn").on("click", function() {
+			if (quantity > 1) {
+				$(".quantity_input").val(--quantity);
+			}
+		});
+
+		// 서버로 전송할 데이터
+		const form = {
+			memberId : '${member.memberId}',
+			productId : '${goodsInfo.productId}',
+			productCount : ''
+		}
+
+		// 장바구니 추가 버튼
+		$(".btn_cart").on("click", function(e) {
+			form.productCount = $(".quantity_input").val();
+			$.ajax({
+				url : '/cart/add',
+				type : 'POST',
+				data : form,
+				success : function(result) {
+					cartAlert(result);
+				}
+			})
+		});
+		function cartAlert(result) {
+			if (result == '0') {
+				alert("장바구니에 추가를 하지 못하였습니다.");
+			} else if (result == '1') {
+				alert("장바구니에 추가되었습니다.");
+			} else if (result == '2') {
+				alert("장바구니에 이미 추가되어져 있습니다.");
+			} else if (result == '5') {
+				alert("로그인이 필요합니다.");
+			}
 		}
 	</script>
 </body>

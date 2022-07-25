@@ -64,7 +64,7 @@ public class ProductController {
 		
 		logger.info("getImage()........" + fileName);
 		
-		File file = new File("/Users/jingoo/upload/" + fileName);
+		File file = new File("/home/ubuntu/Users/jingoo/upload/" + fileName);
 		
 		ResponseEntity<byte[]> result = null;
 		
@@ -124,6 +124,8 @@ public class ProductController {
 		logger.info("goodsDetailGET()..........");
 		
 		model.addAttribute("goodsInfo", productService.getGoodsInfo(productId));
+		
+		model.addAttribute("replys",replyService.getReplyFindAll());
 		
 		return "/goodsDetail";
 	}
